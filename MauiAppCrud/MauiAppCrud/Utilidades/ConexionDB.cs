@@ -15,6 +15,16 @@ namespace MauiAppCrud.Utilidades
                 rutaBaseDatos = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
                 rutaBaseDatos = Path.Combine(rutaBaseDatos,"..","Library",nombreBaseDatos);
             }
+            else if (DeviceInfo.Platform == DevicePlatform.WinUI)
+            {
+                rutaBaseDatos = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData);
+                rutaBaseDatos = Path.Combine(rutaBaseDatos, nombreBaseDatos);
+            }
+            else if (DeviceInfo.Platform == DevicePlatform.MacCatalyst)
+            {
+                rutaBaseDatos = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData);
+                rutaBaseDatos = Path.Combine(rutaBaseDatos, nombreBaseDatos);
+            }
 
             return rutaBaseDatos;
         }

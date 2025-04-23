@@ -12,7 +12,9 @@ namespace MauiAppCrud.DataAccess
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            string conexionDB = $"Filename={ConexionDB.DevolverRuta("empleados.db")}";
+            //NA STRING DE CONEXÃO PODEMOS USAR 'Filename=' OU 'Data Source='
+            //string conexionDB = $"Filename={ConexionDB.DevolverRuta("empleados.db")}";
+            string conexionDB = $"Data Source={ConexionDB.DevolverRuta("empleados.db")}";
             Debug.WriteLine($"Ruta de la base de datos: {conexionDB}");
             optionsBuilder.UseSqlite(conexionDB);
         }
